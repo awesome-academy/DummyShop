@@ -21,7 +21,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/color_zircon"
+        android:background="@drawable/bg_bottom_navigation"
         app:itemIconTint="@color/color_bottom_navigation"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
