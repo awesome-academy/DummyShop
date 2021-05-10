@@ -1,7 +1,9 @@
 package com.sun.dummyshop
 
 import android.app.Application
+import com.sun.dummyshop.di.apiModule
 import com.sun.dummyshop.di.databaseModule
+import com.sun.dummyshop.di.networkModule
 import com.sun.dummyshop.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,6 +15,8 @@ class DummyShopApplication : Application() {
         startKoin {
             androidContext(this@DummyShopApplication)
             modules(
+                networkModule,
+                apiModule,
                 databaseModule,
                 repositoryModule
             )
