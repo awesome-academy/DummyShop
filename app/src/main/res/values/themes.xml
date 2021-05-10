@@ -17,4 +17,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
+
+    <style name="ProductRatingBar" parent="Widget.AppCompat.RatingBar.Indicator">
+        <item name="android:numStars">5</item>
+        <item name="android:progressTint">@color/color_bittersweet</item>
+    </style>
 </resources>
