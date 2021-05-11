@@ -9,4 +9,19 @@
     <color name="color_pickled_bluewood">#364864</color>
     <color name="color_aqua_spring">#EBF9F7</color>
     <color name="color_bittersweet">#FF6961</color>
+    <color name="color_buttermilk">#FFF5BA</color>
+    <color name="color_your_pink">#FFCBC1</color>
+    <color name="color_mauve">#C5A3FF</color>
+    <color name="color_snowy_mint">#BFFCC6</color>
+    <color name="color_scandal">#C4FAF8</color>
+    <color name="color_melrose">#B5B9FF</color>
+
+    <integer-array name="random_colors">
+        <item>@color/color_buttermilk</item>
+        <item>@color/color_your_pink</item>
+        <item>@color/color_mauve</item>
+        <item>@color/color_snowy_mint</item>
+        <item>@color/color_scandal</item>
+        <item>@color/color_melrose</item>
+    </integer-array>
 </resources>

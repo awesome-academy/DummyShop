@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="homeVM"
+            type="com.sun.dummyshop.ui.home.HomeViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,6 +42,7 @@
                     android:layout_marginTop="@dimen/dp_4"
                     android:orientation="horizontal"
                     android:overScrollMode="never"
+                    app:data="@{homeVM.categories}"
                     app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:overScrollMode="never"
+                    app:data="@{homeVM.topSellingProducts}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +126,7 @@
                     android:layout_marginTop="@dimen/dp_4"
                     android:overScrollMode="never"
                     android:paddingBottom="@dimen/dp_56"
+                    app:data="@{homeVM.topRatingProducts}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

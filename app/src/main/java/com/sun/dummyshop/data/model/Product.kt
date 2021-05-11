@@ -1,10 +1,14 @@
 package com.sun.dummyshop.data.model
 
+import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "product")
 data class Product(
     @PrimaryKey
@@ -47,4 +51,14 @@ data class Product(
     var isAddedToCart: Int,
     @ColumnInfo(name = "quantityInCart")
     var quantityInCart: Int
-)
+) : Parcelable {
+
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<Product>() {
+            override fun areItemsTheSame(oldItem: Product, newItem: Product) =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Product, newItem: Product) = oldItem == newItem
+        }
+    }
+}

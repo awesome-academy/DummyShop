@@ -8,4 +8,5 @@
     <string name="title_categories">Categories</string>
     <string name="text_see_more">See more</string>
     <string name="text_search_hint"><i>What are you looking for?</i></string>
+    <string name="text_price">$ %s</string>
 </resources>
