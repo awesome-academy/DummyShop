@@ -11,4 +11,6 @@ interface ProductRepository {
     fun deleteFavoriteProduct(product: Product): Completable
     fun updateFavoriteProduct(product: Product): Completable
     fun isFavoriteProduct(id: String): Single<Boolean>
+    fun getTopRatingProducts(): Observable<List<Product>>
+    fun getTopSellingProducts(): Observable<List<Product>>
 }

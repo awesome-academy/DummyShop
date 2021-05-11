@@ -7,7 +7,8 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 
 class ProductRepositoryImpl(
-    private val local: ProductDataSource.Local
+    private val local: ProductDataSource.Local,
+    private val remote: ProductDataSource.Remote
 ) : ProductRepository {
 
     override fun getFavoriteProducts(): Observable<List<Product>> =
@@ -24,4 +25,10 @@ class ProductRepositoryImpl(
 
     override fun isFavoriteProduct(id: String): Single<Boolean> =
         local.isFavoriteProduct(id)
+
+    override fun getTopRatingProducts(): Observable<List<Product>> =
+        remote.getTopRatingProducts().map { it.data }
+
+    override fun getTopSellingProducts(): Observable<List<Product>> =
+        remote.getTopSellingProducts().map { it.data }
 }
