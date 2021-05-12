@@ -8,15 +8,24 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import com.sun.dummyshop.ui.main.MainActivity
 import com.sun.dummyshop.utils.showToast
 
 abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
 
     @get: LayoutRes
     protected abstract val layoutResource: Int
-    protected var binding: V? = null
     abstract val viewModel: BaseViewModel
+    protected var binding: V? = null
+    protected open var bottomNavigationViewVisibility = View.VISIBLE
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        if (activity is MainActivity) {
+            val mainActivity = activity as MainActivity
+            mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +38,7 @@ abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner, {
             view.context.showToast(it)
         })
         setupViews()

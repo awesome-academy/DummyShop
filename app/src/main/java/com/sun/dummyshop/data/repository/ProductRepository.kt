@@ -13,4 +13,5 @@ interface ProductRepository {
     fun isFavoriteProduct(id: String): Single<Boolean>
     fun getTopRatingProducts(): Observable<List<Product>>
     fun getTopSellingProducts(): Observable<List<Product>>
+    fun getProductsOfCategory(id: String): Observable<List<Product>>
 }

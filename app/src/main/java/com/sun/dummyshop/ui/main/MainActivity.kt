@@ -9,6 +9,7 @@ import com.sun.dummyshop.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.DummyShopTheme)
@@ -26,5 +27,9 @@ class MainActivity : AppCompatActivity() {
                 true
             }
         }
+    }
+
+    fun setBottomNavigationVisibility(visibility: Int) {
+        bottomNavigationView.visibility = visibility
     }
 }

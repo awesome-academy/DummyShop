@@ -18,5 +18,6 @@ interface ProductDataSource {
     interface Remote {
         fun getTopRatingProducts(): Observable<ProductResponse>
         fun getTopSellingProducts(): Observable<ProductResponse>
+        fun getProductsOfCategory(id: String): Observable<ProductResponse>
     }
 }
