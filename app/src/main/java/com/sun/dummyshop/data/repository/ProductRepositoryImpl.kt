@@ -31,4 +31,7 @@ class ProductRepositoryImpl(
 
     override fun getTopSellingProducts(): Observable<List<Product>> =
         remote.getTopSellingProducts().map { it.data }
+
+    override fun getProductsOfCategory(id: String): Observable<List<Product>> =
+        remote.getProductsOfCategory(id).map { it.data }
 }

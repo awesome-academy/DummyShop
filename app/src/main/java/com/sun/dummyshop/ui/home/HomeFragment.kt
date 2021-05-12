@@ -1,5 +1,6 @@
 package com.sun.dummyshop.ui.home
 
+import androidx.navigation.fragment.findNavController
 import com.sun.dummyshop.R
 import com.sun.dummyshop.base.BaseFragment
 import com.sun.dummyshop.data.model.Category
@@ -36,6 +37,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun clickCategory(category: Category) {
+        val action = HomeFragmentDirections.actionHomeToCategory(category)
+        findNavController().navigate(action)
     }
 
     private fun clickProduct(product: Product) {

@@ -11,4 +11,7 @@ class ProductRemoteDataSource(
     override fun getTopRatingProducts(): Observable<ProductResponse> = api.getTopRatingProducts()
 
     override fun getTopSellingProducts(): Observable<ProductResponse> = api.getTopSellingProducts()
+
+    override fun getProductsOfCategory(id: String): Observable<ProductResponse> =
+        api.getProductsOfCategory(id)
 }

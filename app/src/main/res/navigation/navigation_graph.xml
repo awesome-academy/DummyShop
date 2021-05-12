@@ -9,5 +9,19 @@
         android:id="@+id/fragmentHome"
         android:name="com.sun.dummyshop.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionHomeToCategory"
+            app:destination="@id/fragmentCategory" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCategory"
+        android:name="com.sun.dummyshop.ui.category.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="category"
+            app:argType="com.sun.dummyshop.data.model.Category" />
+    </fragment>
 </navigation>
