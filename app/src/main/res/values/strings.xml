@@ -6,7 +6,13 @@
     <string name="title_top_rating">Top Rating</string>
     <string name="title_top_selling">Top Selling</string>
     <string name="title_categories">Categories</string>
+    <string name="title_similar_products">Similar Products</string>
     <string name="text_see_more">See more</string>
     <string name="text_search_hint"><i>What are you looking for?</i></string>
     <string name="text_price">$ %s</string>
+    <string name="text_add_to_cart">Add to cart</string>
+    <string name="text_material">Material: %s</string>
+    <string name="text_color">Color: %s</string>
+    <string name="text_sold">Sold: %s</string>
+    <string name="text_stock">Stock: %s</string>
 </resources>
