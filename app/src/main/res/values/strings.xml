@@ -15,4 +15,6 @@
     <string name="text_color">Color: %s</string>
     <string name="text_sold">Sold: %s</string>
     <string name="text_stock">Stock: %s</string>
+    <string name="text_clear_all">Clear all</string>
+    <string name="title_search_history">Search history</string>
 </resources>
