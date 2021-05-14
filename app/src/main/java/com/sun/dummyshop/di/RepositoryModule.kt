@@ -3,8 +3,10 @@ package com.sun.dummyshop.di
 import com.sun.dummyshop.data.repository.*
 import com.sun.dummyshop.data.source.BillDataSource
 import com.sun.dummyshop.data.source.CategoryDataSource
+import com.sun.dummyshop.data.source.KeywordDataSource
 import com.sun.dummyshop.data.source.ProductDataSource
 import com.sun.dummyshop.data.source.local.BillLocalDataSource
+import com.sun.dummyshop.data.source.local.KeywordLocalDataSource
 import com.sun.dummyshop.data.source.local.ProductLocalDataSource
 import com.sun.dummyshop.data.source.remote.CategoryRemoteDataSource
 import com.sun.dummyshop.data.source.remote.ProductRemoteDataSource
@@ -18,4 +20,6 @@ val repositoryModule = module {
     single<CategoryRepository> { CategoryRepositoryImpl(get()) }
     single<BillDataSource.Local> { BillLocalDataSource(get()) }
     single<BillRepository> { BillRepositoryImpl(get()) }
+    single<KeywordDataSource> { KeywordLocalDataSource(get()) }
+    single<KeywordRepository> { KeywordRepositoryImpl(get()) }
 }

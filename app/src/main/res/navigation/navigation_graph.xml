@@ -13,6 +13,9 @@
         <action
             android:id="@+id/actionHomeToCategory"
             app:destination="@id/fragmentCategory" />
+        <action
+            android:id="@+id/actionHomeToSearch"
+            app:destination="@id/fragmentSearch" />
     </fragment>
 
     <fragment
@@ -23,5 +26,14 @@
         <argument
             android:name="category"
             app:argType="com.sun.dummyshop.data.model.Category" />
+        <action
+            android:id="@+id/actionCategoryToSearch"
+            app:destination="@id/fragmentSearch" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.sun.dummyshop.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
 </navigation>

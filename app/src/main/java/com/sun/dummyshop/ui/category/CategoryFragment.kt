@@ -37,6 +37,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
         buttonBack.setOnClickListener {
             findNavController().popBackStack()
         }
+        textSearch.setOnClickListener {
+            val action = CategoryFragmentDirections.actionCategoryToSearch()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickProduct(product: Product) {

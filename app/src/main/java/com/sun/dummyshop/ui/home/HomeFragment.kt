@@ -34,6 +34,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun setupActions() {
+        textSearch.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeToSearch()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickCategory(category: Category) {

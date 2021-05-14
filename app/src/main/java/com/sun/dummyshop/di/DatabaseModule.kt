@@ -13,5 +13,7 @@ val databaseModule = module {
             AppDatabase.DATABASE_NAME
         ).build()
     }
-    single { get<AppDatabase>().productDAO() }
+    single { get<AppDatabase>().productDao() }
+    single { get<AppDatabase>().billDao() }
+    single { get<AppDatabase>().keywordDao() }
 }
