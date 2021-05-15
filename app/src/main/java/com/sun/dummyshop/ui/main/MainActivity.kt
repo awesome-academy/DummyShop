@@ -1,12 +1,16 @@
 package com.sun.dummyshop.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.sun.dummyshop.R
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +31,14 @@ class MainActivity : AppCompatActivity() {
                 true
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        currentFocus?.let {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     fun setBottomNavigationVisibility(visibility: Int) {
