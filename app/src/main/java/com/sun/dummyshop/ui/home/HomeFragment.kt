@@ -46,5 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun clickProduct(product: Product) {
+        val action = HomeFragmentDirections.actionHomeToDetail(product)
+        findNavController().navigate(action)
     }
 }

@@ -2,6 +2,13 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="detailVM"
+            type="com.sun.dummyshop.ui.detail.DetailViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +29,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:contentDescription="@null"
+                    app:image="@{detailVM.currentProduct.image}"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_32"
+                    android:text="@{detailVM.currentProduct.name}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_28"
                     android:textStyle="bold"
@@ -69,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_8"
                     android:isIndicator="true"
+                    android:rating="@{detailVM.currentProduct.rating}"
                     android:scaleX="0.6"
                     android:scaleY="0.6"
                     android:transformPivotX="0dp"
@@ -81,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/dp_16"
+                    android:text="@{@string/text_price(detailVM.currentProduct.price)}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_40"
                     android:textStyle="bold"
@@ -92,6 +103,7 @@
                     android:id="@+id/textProductMaterial"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:text="@{@string/text_material(detailVM.currentProduct.material)}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_20"
                     android:textStyle="italic|bold"
@@ -104,6 +116,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{@string/text_color(detailVM.currentProduct.color)}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_20"
                     android:textStyle="italic|bold"
@@ -116,6 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
+                    android:text="@{@string/text_sold(detailVM.currentProduct.sold)}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_20"
                     android:textStyle="italic|bold"
@@ -129,6 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:paddingBottom="@dimen/dp_32"
+                    android:text="@{@string/text_stock(detailVM.currentProduct.stock)}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/sp_20"
                     android:textStyle="italic|bold"
@@ -143,7 +158,7 @@
                     android:background="@android:color/transparent"
                     android:contentDescription="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_favorite_line"
+                    android:src="@{detailVM.isFavorite() ? @drawable/ic_favorite_fill : @drawable/ic_favorite_line}"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="@id/textProductPrice"
                     app:layout_constraintTop_toTopOf="@id/textProductSold"
@@ -182,6 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:overScrollMode="never"
+                    app:data="@{detailVM.similarProducts}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
