@@ -1,6 +1,5 @@
 package com.sun.dummyshop.ui.search
 
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.navigation.fragment.findNavController
 import com.sun.dummyshop.R
@@ -15,7 +14,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     override val layoutResource get() = R.layout.fragment_search
     override val viewModel by viewModel<SearchViewModel>()
-    override var bottomNavigationViewVisibility = View.GONE
 
     private val adapter = KeywordAdapter(::clickKeyword, ::clickDeleteButtonOfKeyword)
 

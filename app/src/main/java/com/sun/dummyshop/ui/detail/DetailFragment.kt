@@ -1,6 +1,5 @@
 package com.sun.dummyshop.ui.detail
 
-import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sun.dummyshop.R
@@ -16,7 +15,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     override val layoutResource get() = R.layout.fragment_detail
     override val viewModel by viewModel<DetailViewModel>()
-    override var bottomNavigationViewVisibility = View.GONE
 
     private val adapter = ProductAdapter(::clickProduct)
     private val args: DetailFragmentArgs by navArgs()

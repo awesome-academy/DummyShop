@@ -3,6 +3,7 @@ package com.sun.dummyshop.ui.main
 import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         val navigationHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentNavigationHost) as NavHostFragment
         val navigationController = navigationHostFragment.navController
+        navigationController.addOnDestinationChangedListener {_, destination, _ ->
+            when (destination.id) {
+                in mainFragments -> showBottomNavigation()
+                else -> hideBottomNavigation()
+            }
+        }
         bottomNavigationView.apply {
             setupWithNavController(navigationController)
             setOnNavigationItemSelectedListener {
@@ -41,7 +48,19 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    fun setBottomNavigationVisibility(visibility: Int) {
-        bottomNavigationView.visibility = visibility
+    private fun showBottomNavigation() {
+        bottomNavigationView.visibility = View.VISIBLE
+    }
+
+    private fun hideBottomNavigation() {
+        bottomNavigationView.visibility = View.GONE
+    }
+
+    companion object {
+        val mainFragments = listOf(
+            R.id.fragmentHome,
+            R.id.fragmentFavorite,
+            R.id.fragmentHistory
+        )
     }
 }
