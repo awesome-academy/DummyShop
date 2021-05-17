@@ -14,17 +14,22 @@ class ProductRepositoryImpl(
     override fun getFavoriteProducts(): Observable<List<Product>> =
         local.getFavoriteProducts()
 
-    override fun insertFavoriteProduct(product: Product): Completable =
-        local.insertFavoriteProduct(product)
+    override fun insertProduct(product: Product): Completable =
+        local.insertProduct(product)
 
     override fun deleteFavoriteProduct(product: Product): Completable =
         local.deleteFavoriteProduct(product)
 
-    override fun updateFavoriteProduct(product: Product): Completable =
-        local.updateFavoriteProduct(product)
+    override fun updateProduct(product: Product): Completable =
+        local.updateProduct(product)
 
     override fun isFavoriteProduct(id: String): Single<Boolean> =
         local.isFavoriteProduct(id)
+
+    override fun isAddedToCart(id: String): Single<Boolean> =
+        local.isAddedToCart(id)
+
+    override fun getProductById(id: String): Single<Product> = local.getProductById(id)
 
     override fun getTopRatingProducts(): Observable<List<Product>> =
         remote.getTopRatingProducts().map { it.data }
@@ -34,4 +39,7 @@ class ProductRepositoryImpl(
 
     override fun getProductsOfCategory(id: String): Observable<List<Product>> =
         remote.getProductsOfCategory(id).map { it.data }
+
+    override fun getSimilarProducts(id: String): Observable<List<Product>> =
+        remote.getSimilarProducts(id).map { it.data.items }
 }

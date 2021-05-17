@@ -14,15 +14,20 @@ class ProductLocalDataSource(
     override fun getFavoriteProducts(): Observable<List<Product>> =
         productDao.getFavoriteProducts()
 
-    override fun insertFavoriteProduct(product: Product): Completable =
-        productDao.insertFavoriteProduct(product)
+    override fun insertProduct(product: Product): Completable =
+        productDao.insertProduct(product)
 
     override fun deleteFavoriteProduct(product: Product): Completable =
         productDao.deleteFavoriteProduct(product)
 
-    override fun updateFavoriteProduct(product: Product): Completable =
-        productDao.updateFavoriteProduct(product)
+    override fun updateProduct(product: Product): Completable =
+        productDao.updateProduct(product)
 
     override fun isFavoriteProduct(id: String): Single<Boolean> =
         productDao.getFavoriteProductById(id).map { it.isNotEmpty() }
+
+    override fun isAddedToCart(id: String): Single<Boolean> =
+        productDao.getProductAddedToCart(id).map { it.isNotEmpty() }
+
+    override fun getProductById(id: String): Single<Product> = productDao.getProductById(id)
 }

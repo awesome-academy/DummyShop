@@ -44,5 +44,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
     }
 
     private fun clickProduct(product: Product) {
+        val action = CategoryFragmentDirections.actionCategoryToDetail(product)
+        findNavController().navigate(action)
     }
 }

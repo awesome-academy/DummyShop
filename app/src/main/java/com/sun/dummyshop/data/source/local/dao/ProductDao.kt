@@ -11,15 +11,21 @@ interface ProductDao {
     @Query("SELECT * FROM product WHERE isFavorite = 1")
     fun getFavoriteProducts(): Observable<List<Product>>
 
-    @Insert
-    fun insertFavoriteProduct(product: Product): Completable
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertProduct(product: Product): Completable
 
     @Delete
     fun deleteFavoriteProduct(product: Product): Completable
 
     @Update
-    fun updateFavoriteProduct(product: Product): Completable
+    fun updateProduct(product: Product): Completable
 
     @Query("SELECT * FROM product WHERE id = :id AND isFavorite = 1")
     fun getFavoriteProductById(id: String): Single<List<Product>>
+
+    @Query("SELECT * FROM product WHERE id = :id AND quantityInCart > 0")
+    fun getProductAddedToCart(id: String): Single<List<Product>>
+
+    @Query("SELECT * FROM product WHERE id = :id")
+    fun getProductById(id: String): Single<Product>
 }

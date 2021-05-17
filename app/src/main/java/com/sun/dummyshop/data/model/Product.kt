@@ -32,13 +32,13 @@ data class Product(
     val stock: Int,
     @SerializedName("product_color")
     @ColumnInfo(name = "color")
-    val color: String,
+    val color: String?,
     @SerializedName("product_price")
     @ColumnInfo(name = "price")
     val price: String,
     @SerializedName("product_material")
     @ColumnInfo(name = "material")
-    val material: String,
+    val material: String?,
     @SerializedName("product_ratings")
     @ColumnInfo(name = "rating")
     val rating: Int,
@@ -46,11 +46,9 @@ data class Product(
     @ColumnInfo(name = "sold")
     val sold: Int,
     @ColumnInfo(name = "isFavorite")
-    var isFavorite: Int,
-    @ColumnInfo(name = "isAddedToCart")
-    var isAddedToCart: Int,
+    val isFavorite: Int,
     @ColumnInfo(name = "quantityInCart")
-    var quantityInCart: Int
+    val quantityInCart: Int
 ) : Parcelable {
 
     companion object {
