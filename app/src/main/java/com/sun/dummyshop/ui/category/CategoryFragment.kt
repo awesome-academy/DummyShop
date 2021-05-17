@@ -1,6 +1,5 @@
 package com.sun.dummyshop.ui.category
 
-import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sun.dummyshop.R
@@ -15,7 +14,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
 
     override val layoutResource get() = R.layout.fragment_category
     override val viewModel by viewModel<CategoryViewModel>()
-    override var bottomNavigationViewVisibility = View.GONE
 
     private val adapter = ProductAdapter(::clickProduct)
     private val args: CategoryFragmentArgs by navArgs()

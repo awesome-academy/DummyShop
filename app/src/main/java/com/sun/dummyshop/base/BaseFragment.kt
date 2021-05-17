@@ -8,7 +8,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.sun.dummyshop.ui.main.MainActivity
 import com.sun.dummyshop.utils.showToast
 
 abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
@@ -17,15 +16,6 @@ abstract class BaseFragment<V : ViewDataBinding> : Fragment() {
     protected abstract val layoutResource: Int
     abstract val viewModel: BaseViewModel
     protected var binding: V? = null
-    protected open var bottomNavigationViewVisibility = View.VISIBLE
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        if (activity is MainActivity) {
-            val mainActivity = activity as MainActivity
-            mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
