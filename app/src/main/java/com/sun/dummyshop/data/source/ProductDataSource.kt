@@ -23,5 +23,10 @@ interface ProductDataSource {
         fun getTopSellingProducts(): Observable<ProductResponse>
         fun getProductsOfCategory(id: String): Observable<ProductResponse>
         fun getSimilarProducts(id: String): Observable<SimilarProductResponse>
+        fun searchProductsWithFilters(
+            keyword: String,
+            priceFilter: String,
+            ratingFilter: String,
+        ): Observable<ProductResponse>
     }
 }

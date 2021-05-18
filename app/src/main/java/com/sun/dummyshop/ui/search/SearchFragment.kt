@@ -46,8 +46,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         }
     }
 
-    private fun search(text: String) {
-        viewModel.insertKeyword(Keyword(text))
+    private fun search(keyword: String) {
+        val action = SearchFragmentDirections.actionSearchToSearchResult(keyword)
+        findNavController().navigate(action)
+        viewModel.insertKeyword(Keyword(keyword))
         editTextSearch.text.clear()
     }
 

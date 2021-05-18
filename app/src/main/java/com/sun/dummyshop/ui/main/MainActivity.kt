@@ -3,9 +3,9 @@ package com.sun.dummyshop.ui.main
 import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -23,11 +23,8 @@ class MainActivity : AppCompatActivity() {
         val navigationHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentNavigationHost) as NavHostFragment
         val navigationController = navigationHostFragment.navController
-        navigationController.addOnDestinationChangedListener {_, destination, _ ->
-            when (destination.id) {
-                in mainFragments -> showBottomNavigation()
-                else -> hideBottomNavigation()
-            }
+        navigationController.addOnDestinationChangedListener { _, destination, _ ->
+            bottomNavigationView.isVisible = destination.id in mainFragments
         }
         bottomNavigationView.apply {
             setupWithNavController(navigationController)
@@ -46,14 +43,6 @@ class MainActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
         return super.dispatchTouchEvent(ev)
-    }
-
-    private fun showBottomNavigation() {
-        bottomNavigationView.visibility = View.VISIBLE
-    }
-
-    private fun hideBottomNavigation() {
-        bottomNavigationView.visibility = View.GONE
     }
 
     companion object {

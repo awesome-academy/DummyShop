@@ -17,4 +17,9 @@ interface ProductRepository {
     fun getTopSellingProducts(): Observable<List<Product>>
     fun getProductsOfCategory(id: String): Observable<List<Product>>
     fun getSimilarProducts(id: String): Observable<List<Product>>
+    fun searchProductsWithFilters(
+        keyword: String,
+        priceFilter: String,
+        ratingFilter: String,
+    ): Observable<List<Product>>
 }

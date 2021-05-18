@@ -18,4 +18,11 @@ class ProductRemoteDataSource(
 
     override fun getSimilarProducts(id: String): Observable<SimilarProductResponse> =
         api.getSimilarProducts(id)
+
+    override fun searchProductsWithFilters(
+        keyword: String,
+        priceFilter: String,
+        ratingFilter: String
+    ): Observable<ProductResponse> =
+        api.searchProductsWithFilters(keyword, priceFilter, ratingFilter)
 }
