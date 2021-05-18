@@ -42,4 +42,11 @@ class ProductRepositoryImpl(
 
     override fun getSimilarProducts(id: String): Observable<List<Product>> =
         remote.getSimilarProducts(id).map { it.data.items }
+
+    override fun searchProductsWithFilters(
+        keyword: String,
+        priceFilter: String,
+        ratingFilter: String
+    ): Observable<List<Product>> =
+        remote.searchProductsWithFilters(keyword, priceFilter, ratingFilter).map { it.data }
 }

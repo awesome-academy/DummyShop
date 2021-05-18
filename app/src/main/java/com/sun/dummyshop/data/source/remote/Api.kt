@@ -25,6 +25,13 @@ interface Api {
     @GET("products/{product_id}")
     fun getSimilarProducts(
         @Path("product_id") productId: String,
-        @Query("similarities") similar: String? = Constants.SIMILARITIES_VALUE
+        @Query("similarities") similar: String = Constants.SIMILARITIES_VALUE
     ): Observable<SimilarProductResponse>
+
+    @GET("products/search")
+    fun searchProductsWithFilters(
+        @Query("term") keyword: String,
+        @Query("price") priceFilter: String,
+        @Query("ratings") ratingFilter: String
+    ): Observable<ProductResponse>
 }
