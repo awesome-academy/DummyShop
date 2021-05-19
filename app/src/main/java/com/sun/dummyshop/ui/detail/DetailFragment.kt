@@ -41,6 +41,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         buttonFavorite.setOnClickListener {
             viewModel.setFavorite()
         }
+        textSimilarSeeMore.setOnClickListener {
+            viewModel.currentProduct.value?.let { product ->
+                val action = DetailFragmentDirections.actionDetailToSeeMore(product.id)
+                findNavController().navigate(action)
+            }
+        }
     }
 
     private fun clickProduct(product: Product) {

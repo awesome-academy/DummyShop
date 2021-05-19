@@ -19,6 +19,9 @@
         <action
             android:id="@+id/actionHomeToDetail"
             app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/actionHomeToSeeMore"
+            app:destination="@id/fragmentSeeMore" />
     </fragment>
 
     <fragment
@@ -55,6 +58,9 @@
         <argument
             android:name="product"
             app:argType="com.sun.dummyshop.data.model.Product" />
+        <action
+            android:id="@+id/actionDetailToSeeMore"
+            app:destination="@id/fragmentSeeMore" />
     </fragment>
 
     <fragment
@@ -68,5 +74,18 @@
         <action
             android:id="@+id/actionSearchResultToDetail"
             app:destination="@id/fragmentDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentSeeMore"
+        android:name="com.sun.dummyshop.ui.seemore.SeeMoreFragment"
+        android:label="SeeMoreFragment"
+        tools:layout="@layout/fragment_see_more">
+        <action
+            android:id="@+id/actionSeeMoreToDetail"
+            app:destination="@id/fragmentDetail" />
+        <argument
+            android:name="type"
+            app:argType="string" />
     </fragment>
 </navigation>
