@@ -9,6 +9,7 @@
     <string name="title_similar_products">Similar Products</string>
     <string name="title_price">Price</string>
     <string name="title_rating">Rating</string>
+    <string name="title_cart">Cart</string>
     <string name="text_see_more">See more</string>
     <string name="text_search_hint"><i>What are you looking for?</i></string>
     <string name="text_price">$ %s</string>
@@ -23,6 +24,8 @@
     <string name="text_price_filter">From $ %s to $ %s</string>
     <string name="text_apply_filter">Apply</string>
     <string name="text_no_result">No result</string>
+    <string name="text_total">Total:</string>
+    <string name="text_checkout">Checkout</string>
     <string-array name="value_range_slider">
         <item>0</item>
         <item>5000</item>
