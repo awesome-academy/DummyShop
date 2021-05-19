@@ -15,4 +15,9 @@ object Constants {
     const val EXCEPTION_EMPTY_RESULT = "Query returned empty result set: SELECT * FROM product WHERE id = ?"
     const val EXCEPTION_EMPTY_SEARCH_RESULT = "HTTP 404 Not Found"
     const val TOP_POSITION = 0
+    const val BUNDLE_TOP_RATING = "BUNDLE_TOP_RATING"
+    const val BUNDLE_TOP_SELLING = "BUNDLE_TOP_SELLING"
+    const val TITLE_TOP_RATING = "Top Rating"
+    const val TITLE_TOP_SELLING = "Top Selling"
+    const val TITLE_SIMILAR = "Similar Products"
 }
