@@ -47,6 +47,10 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 findNavController().navigate(action)
             }
         }
+        buttonCart.setOnClickListener {
+            val action = DetailFragmentDirections.actionDetailToCart()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickProduct(product: Product) {

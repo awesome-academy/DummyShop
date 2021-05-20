@@ -39,6 +39,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
             val action = CategoryFragmentDirections.actionCategoryToSearch()
             findNavController().navigate(action)
         }
+        buttonCart.setOnClickListener {
+            val action = CategoryFragmentDirections.actionCategoryToCart()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickProduct(product: Product) {

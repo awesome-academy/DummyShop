@@ -47,6 +47,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             val action = HomeFragmentDirections.actionHomeToSeeMore(Constants.BUNDLE_TOP_SELLING)
             findNavController().navigate(action)
         }
+        buttonCart.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeToCart()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickCategory(category: Category) {

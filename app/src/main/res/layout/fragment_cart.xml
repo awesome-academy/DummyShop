@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="cartVM"
+            type="com.sun.dummyshop.ui.cart.CartViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +30,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dp_4"
                     android:overScrollMode="never"
+                    app:data="@{cartVM.products}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -101,6 +109,7 @@
                 android:layout_marginStart="@dimen/dp_4"
                 android:elevation="@dimen/dp_4"
                 android:padding="@dimen/dp_8"
+                android:text="@{@string/text_price(cartVM.total)}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp_24"
                 android:textStyle="bold"
