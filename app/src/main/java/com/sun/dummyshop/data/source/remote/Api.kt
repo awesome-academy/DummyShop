@@ -1,13 +1,10 @@
 package com.sun.dummyshop.data.source.remote
 
-import com.sun.dummyshop.data.model.CategoryResponse
-import com.sun.dummyshop.data.model.ProductResponse
-import com.sun.dummyshop.data.model.SimilarProductResponse
+import com.sun.dummyshop.data.model.*
 import com.sun.dummyshop.utils.Constants
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import io.reactivex.rxjava3.core.Single
+import retrofit2.http.*
 
 interface Api {
     @GET("products/toprated")
@@ -34,4 +31,8 @@ interface Api {
         @Query("price") priceFilter: String,
         @Query("ratings") ratingFilter: String
     ): Observable<ProductResponse>
+
+    @Headers("Content-Type: application/json")
+    @POST("actions/checkout")
+    fun checkout(@Body checkoutBody: CheckoutBody): Single<Bill>
 }

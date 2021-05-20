@@ -28,4 +28,10 @@ interface ProductDao {
 
     @Query("SELECT * FROM product WHERE id = :id")
     fun getProductById(id: String): Single<Product>
+
+    @Query("SELECT * FROM product WHERE quantityInCart > 0")
+    fun getAddedToCartProducts(): Single<List<Product>>
+
+    @Update
+    fun removeFromCart(product: Product): Single<Int>
 }
