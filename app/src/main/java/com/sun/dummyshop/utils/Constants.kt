@@ -12,6 +12,8 @@ object Constants {
     const val PRODUCT_QUANTITY_UNIT = 1
     const val PRODUCT_IS_FAVORITE = 1
     const val PRODUCT_NOT_FAVORITE = 0
+    const val PRODUCT_DEFAULT_QUANTITY = 0
+    const val CART_DEFAULT_AMOUNT = 0
     const val EXCEPTION_EMPTY_RESULT = "Query returned empty result set: SELECT * FROM product WHERE id = ?"
     const val EXCEPTION_EMPTY_SEARCH_RESULT = "HTTP 404 Not Found"
     const val TOP_POSITION = 0

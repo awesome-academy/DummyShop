@@ -22,6 +22,9 @@
         <action
             android:id="@+id/actionHomeToSeeMore"
             app:destination="@id/fragmentSeeMore" />
+        <action
+            android:id="@+id/actionHomeToCart"
+            app:destination="@id/fragmentCart" />
     </fragment>
 
     <fragment
@@ -38,6 +41,9 @@
         <action
             android:id="@+id/actionCategoryToDetail"
             app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/actionCategoryToCart"
+            app:destination="@id/fragmentCart" />
     </fragment>
 
     <fragment
@@ -61,6 +67,9 @@
         <action
             android:id="@+id/actionDetailToSeeMore"
             app:destination="@id/fragmentSeeMore" />
+        <action
+            android:id="@+id/actionDetailToCart"
+            app:destination="@id/fragmentCart" />
     </fragment>
 
     <fragment
@@ -84,8 +93,21 @@
         <action
             android:id="@+id/actionSeeMoreToDetail"
             app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/actionSeeMoreToCart"
+            app:destination="@id/fragmentCart" />
         <argument
             android:name="type"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCart"
+        android:name="com.sun.dummyshop.ui.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/actionCartToDetail"
+            app:destination="@+id/fragmentDetail" />
     </fragment>
 </navigation>

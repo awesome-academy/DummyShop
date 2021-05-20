@@ -35,6 +35,10 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>() {
         buttonBack.setOnClickListener {
             findNavController().popBackStack()
         }
+        buttonCart.setOnClickListener {
+            val action = SeeMoreFragmentDirections.actionSeeMoreToCart()
+            findNavController().navigate(action)
+        }
     }
 
     private fun clickProduct(product: Product) {
