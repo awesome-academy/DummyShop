@@ -1,5 +1,6 @@
 package com.sun.dummyshop.di
 
+import com.sun.dummyshop.ui.cart.CartViewModel
 import com.sun.dummyshop.ui.category.CategoryViewModel
 import com.sun.dummyshop.ui.detail.DetailViewModel
 import com.sun.dummyshop.ui.home.HomeViewModel
@@ -16,4 +17,5 @@ val viewModelModule = module {
     viewModel { DetailViewModel(get()) }
     viewModel { SearchResultViewModel(get()) }
     viewModel { SeeMoreViewModel(get()) }
+    viewModel { CartViewModel(get(), get()) }
 }

@@ -31,6 +31,10 @@ class ProductRepositoryImpl(
 
     override fun getProductById(id: String): Single<Product> = local.getProductById(id)
 
+    override fun removeFromCart(product: Product): Single<Int> = local.removeFromCart(product)
+
+    override fun getAddedToCartProducts(): Single<List<Product>> = local.getAddedToCartProducts()
+
     override fun getTopRatingProducts(): Observable<List<Product>> =
         remote.getTopRatingProducts().map { it.data }
 

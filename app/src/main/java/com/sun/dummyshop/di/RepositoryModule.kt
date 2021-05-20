@@ -8,6 +8,7 @@ import com.sun.dummyshop.data.source.ProductDataSource
 import com.sun.dummyshop.data.source.local.BillLocalDataSource
 import com.sun.dummyshop.data.source.local.KeywordLocalDataSource
 import com.sun.dummyshop.data.source.local.ProductLocalDataSource
+import com.sun.dummyshop.data.source.remote.BillRemoteDataSource
 import com.sun.dummyshop.data.source.remote.CategoryRemoteDataSource
 import com.sun.dummyshop.data.source.remote.ProductRemoteDataSource
 import org.koin.dsl.module
@@ -19,7 +20,8 @@ val repositoryModule = module {
     single<CategoryDataSource> { CategoryRemoteDataSource(get()) }
     single<CategoryRepository> { CategoryRepositoryImpl(get()) }
     single<BillDataSource.Local> { BillLocalDataSource(get()) }
-    single<BillRepository> { BillRepositoryImpl(get()) }
+    single<BillDataSource.Remote> { BillRemoteDataSource(get()) }
+    single<BillRepository> { BillRepositoryImpl(get(), get()) }
     single<KeywordDataSource> { KeywordLocalDataSource(get()) }
     single<KeywordRepository> { KeywordRepositoryImpl(get()) }
 }

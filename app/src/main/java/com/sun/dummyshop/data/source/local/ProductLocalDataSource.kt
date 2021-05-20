@@ -30,4 +30,8 @@ class ProductLocalDataSource(
         productDao.getProductAddedToCart(id).map { it.isNotEmpty() }
 
     override fun getProductById(id: String): Single<Product> = productDao.getProductById(id)
+
+    override fun removeFromCart(product: Product): Single<Int> = productDao.removeFromCart(product)
+
+    override fun getAddedToCartProducts(): Single<List<Product>> = productDao.getAddedToCartProducts()
 }
