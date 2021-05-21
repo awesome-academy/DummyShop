@@ -10,6 +10,7 @@
     <string name="title_price">Price</string>
     <string name="title_rating">Rating</string>
     <string name="title_cart">Cart</string>
+    <string name="title_checkout">Checkout Successful</string>
     <string name="text_see_more">See more</string>
     <string name="text_search_hint"><i>What are you looking for?</i></string>
     <string name="text_price">$ %s</string>
@@ -26,6 +27,10 @@
     <string name="text_no_result">No result</string>
     <string name="text_total">Total:</string>
     <string name="text_checkout">Checkout</string>
+    <string name="text_back_to_home">Back to home</string>
+    <string name="text_total_items">Total items: %s</string>
+    <string name="text_total_amount">Total amount: $ %s</string>
+    <string name="text_quantity">Quantity: %s</string>
     <string-array name="value_range_slider">
         <item>0</item>
         <item>5000</item>
