@@ -31,6 +31,10 @@ class CartViewModel(
     val total: LiveData<Int>
         get() = _total
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     private fun saveBill(bill: Bill) {
         billRepository.insertBill(bill)
             .subscribeOn(Schedulers.io())
@@ -74,6 +78,7 @@ class CartViewModel(
     }
 
     fun checkout() {
+        _isLoading.value = true
         productRepository.getAddedToCartProducts()
             .map {
                 it.map { product ->
@@ -87,10 +92,12 @@ class CartViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                _isLoading.value = false
                 _bill.postValue(it)
                 removeAllFromCart()
                 saveBill(it)
             }, {
+                _isLoading.value = false
                 _error.postValue(it.message.toString())
             })
             .addTo(disposable)

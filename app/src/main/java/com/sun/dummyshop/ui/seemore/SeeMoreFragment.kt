@@ -32,12 +32,14 @@ class SeeMoreFragment : BaseFragment<FragmentSeeMoreBinding>() {
     }
 
     override fun setupActions() {
-        buttonBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        buttonCart.setOnClickListener {
-            val action = SeeMoreFragmentDirections.actionSeeMoreToCart()
-            findNavController().navigate(action)
+        binding?.apply {
+            buttonBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            buttonCart.setOnClickListener {
+                val action = SeeMoreFragmentDirections.actionSeeMoreToCart()
+                findNavController().navigate(action)
+            }
         }
     }
 

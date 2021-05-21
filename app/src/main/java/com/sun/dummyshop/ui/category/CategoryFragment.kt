@@ -7,7 +7,6 @@ import com.sun.dummyshop.base.BaseFragment
 import com.sun.dummyshop.data.model.Product
 import com.sun.dummyshop.databinding.FragmentCategoryBinding
 import com.sun.dummyshop.ui.adapter.ProductAdapter
-import kotlinx.android.synthetic.main.fragment_category.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
@@ -23,25 +22,27 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
     }
 
     override fun setupData() {
-        recyclerProductsOfCategory.adapter = adapter
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             categoryVM = viewModel
+            recyclerProductsOfCategory.adapter = adapter
         }
         viewModel.getProductsOfCategory(args.category.id)
     }
 
     override fun setupActions() {
-        buttonBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        textSearch.setOnClickListener {
-            val action = CategoryFragmentDirections.actionCategoryToSearch()
-            findNavController().navigate(action)
-        }
-        buttonCart.setOnClickListener {
-            val action = CategoryFragmentDirections.actionCategoryToCart()
-            findNavController().navigate(action)
+        binding?.apply {
+            buttonBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            textSearch.setOnClickListener {
+                val action = CategoryFragmentDirections.actionCategoryToSearch()
+                findNavController().navigate(action)
+            }
+            buttonCart.setOnClickListener {
+                val action = CategoryFragmentDirections.actionCategoryToCart()
+                findNavController().navigate(action)
+            }
         }
     }
 

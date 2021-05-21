@@ -137,5 +137,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            layout="@layout/dialog_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loading="@{cartVM.isLoading()}" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

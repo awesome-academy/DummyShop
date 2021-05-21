@@ -21,28 +21,30 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     override fun setupData() {
-        recyclerSearchHistory.adapter = adapter
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             searchVM = viewModel
+            recyclerSearchHistory.adapter = adapter
         }
     }
 
     override fun setupActions() {
-        buttonBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        buttonSearch.setOnClickListener {
-            search(editTextSearch.text.toString())
-        }
-        textClearAll.setOnClickListener {
-            viewModel.deleteAllKeywords()
-        }
-        editTextSearch.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+        binding?.apply {
+            buttonBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            buttonSearch.setOnClickListener {
                 search(editTextSearch.text.toString())
             }
-            false
+            textClearAll.setOnClickListener {
+                viewModel.deleteAllKeywords()
+            }
+            editTextSearch.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    search(editTextSearch.text.toString())
+                }
+                false
+            }
         }
     }
 
@@ -50,7 +52,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         val action = SearchFragmentDirections.actionSearchToSearchResult(keyword)
         findNavController().navigate(action)
         viewModel.insertKeyword(Keyword(keyword))
-        editTextSearch.text.clear()
+        binding?.let {
+            editTextSearch.text.clear()
+        }
     }
 
     private fun clickKeyword(keyword: Keyword) {
