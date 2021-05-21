@@ -109,5 +109,21 @@
         <action
             android:id="@+id/actionCartToDetail"
             app:destination="@+id/fragmentDetail" />
+        <action
+            android:id="@+id/actionCartToCheckout"
+            app:destination="@id/fragmentCheckout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentCheckout"
+        android:name="com.sun.dummyshop.ui.checkout.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout">
+        <action
+            android:id="@+id/actionCheckoutToHome"
+            app:destination="@id/fragmentHome" />
+        <argument
+            android:name="bill"
+            app:argType="com.sun.dummyshop.data.model.Bill" />
     </fragment>
 </navigation>

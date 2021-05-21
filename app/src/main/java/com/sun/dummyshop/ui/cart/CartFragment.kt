@@ -14,7 +14,12 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
     override val layoutResource get() = R.layout.fragment_cart
     override val viewModel by viewModel<CartViewModel>()
 
-    private val adapter = CartProductAdapter(::clickProduct, ::clickDeleteButton, ::clickAddButton, ::clickMinusButton)
+    private val adapter = CartProductAdapter(
+        ::clickProduct,
+        ::clickDeleteButton,
+        ::clickAddButton,
+        ::clickMinusButton
+    )
 
     override fun setupViews() {
     }
@@ -29,8 +34,17 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
     }
 
     override fun setupActions() {
-        buttonBack.setOnClickListener {
-            findNavController().popBackStack()
+        binding?.apply {
+            buttonBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            buttonCheckout.setOnClickListener {
+                viewModel.checkout()
+                viewModel.bill.observe(viewLifecycleOwner, {
+                    val action = CartFragmentDirections.actionCartToCheckout(it)
+                    findNavController().navigate(action)
+                })
+            }
         }
     }
 

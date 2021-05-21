@@ -10,7 +10,6 @@ import com.sun.dummyshop.databinding.FragmentHomeBinding
 import com.sun.dummyshop.ui.adapter.CategoryAdapter
 import com.sun.dummyshop.ui.adapter.ProductAdapter
 import com.sun.dummyshop.utils.Constants
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
@@ -35,21 +34,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun setupActions() {
-        textSearch.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeToSearch()
-            findNavController().navigate(action)
-        }
-        textTopRatingSeeMore.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeToSeeMore(Constants.BUNDLE_TOP_RATING)
-            findNavController().navigate(action)
-        }
-        textTopSellingSeeMore.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeToSeeMore(Constants.BUNDLE_TOP_SELLING)
-            findNavController().navigate(action)
-        }
-        buttonCart.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeToCart()
-            findNavController().navigate(action)
+        binding?.apply {
+            textSearch.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeToSearch()
+                findNavController().navigate(action)
+            }
+            textTopRatingSeeMore.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeToSeeMore(Constants.BUNDLE_TOP_RATING)
+                findNavController().navigate(action)
+            }
+            textTopSellingSeeMore.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeToSeeMore(Constants.BUNDLE_TOP_SELLING)
+                findNavController().navigate(action)
+            }
+            buttonCart.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeToCart()
+                findNavController().navigate(action)
+            }
         }
     }
 

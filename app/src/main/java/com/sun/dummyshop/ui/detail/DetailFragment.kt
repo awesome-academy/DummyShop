@@ -8,7 +8,6 @@ import com.sun.dummyshop.data.model.Product
 import com.sun.dummyshop.databinding.FragmentDetailBinding
 import com.sun.dummyshop.ui.adapter.ProductAdapter
 import com.sun.dummyshop.utils.Constants
-import kotlinx.android.synthetic.main.fragment_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
@@ -32,30 +31,32 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     }
 
     override fun setupActions() {
-        buttonBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        buttonAddToCart.setOnClickListener {
-            viewModel.addToCart()
-        }
-        buttonFavorite.setOnClickListener {
-            viewModel.setFavorite()
-        }
-        textSimilarSeeMore.setOnClickListener {
-            viewModel.currentProduct.value?.let { product ->
-                val action = DetailFragmentDirections.actionDetailToSeeMore(product.id)
+        binding?.apply {
+            buttonBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            buttonAddToCart.setOnClickListener {
+                viewModel.addToCart()
+            }
+            buttonFavorite.setOnClickListener {
+                viewModel.setFavorite()
+            }
+            textSimilarSeeMore.setOnClickListener {
+                viewModel.currentProduct.value?.let { product ->
+                    val action = DetailFragmentDirections.actionDetailToSeeMore(product.id)
+                    findNavController().navigate(action)
+                }
+            }
+            buttonCart.setOnClickListener {
+                val action = DetailFragmentDirections.actionDetailToCart()
                 findNavController().navigate(action)
             }
-        }
-        buttonCart.setOnClickListener {
-            val action = DetailFragmentDirections.actionDetailToCart()
-            findNavController().navigate(action)
         }
     }
 
     private fun clickProduct(product: Product) {
         getProductRelateInformation(product)
-        nestedScroll.smoothScrollTo(Constants.TOP_POSITION, Constants.TOP_POSITION)
+        binding?.nestedScroll?.smoothScrollTo(Constants.TOP_POSITION, Constants.TOP_POSITION)
     }
 
     private fun getProductRelateInformation(product: Product) {
