@@ -126,4 +126,17 @@
             android:name="bill"
             app:argType="com.sun.dummyshop.data.model.Bill" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.sun.dummyshop.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/actionFavoriteToDetail"
+            app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/actionFavoriteToCart"
+            app:destination="@id/fragmentCart" />
+    </fragment>
 </navigation>
