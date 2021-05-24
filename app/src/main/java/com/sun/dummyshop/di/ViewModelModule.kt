@@ -4,6 +4,7 @@ import com.sun.dummyshop.ui.cart.CartViewModel
 import com.sun.dummyshop.ui.category.CategoryViewModel
 import com.sun.dummyshop.ui.detail.DetailViewModel
 import com.sun.dummyshop.ui.favorite.FavoriteViewModel
+import com.sun.dummyshop.ui.history.HistoryViewModel
 import com.sun.dummyshop.ui.home.HomeViewModel
 import com.sun.dummyshop.ui.result.SearchResultViewModel
 import com.sun.dummyshop.ui.search.SearchViewModel
@@ -20,4 +21,5 @@ val viewModelModule = module {
     viewModel { SeeMoreViewModel(get()) }
     viewModel { CartViewModel(get(), get()) }
     viewModel { FavoriteViewModel(get()) }
+    viewModel { HistoryViewModel(get()) }
 }

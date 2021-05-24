@@ -9,7 +9,7 @@ import com.sun.dummyshop.base.BaseViewHolder
 import com.sun.dummyshop.data.model.BillProduct
 import com.sun.dummyshop.databinding.ItemBillProductBinding
 
-class BillProductAdapter() :
+class BillProductAdapter :
     BaseAdapter<BillProduct, BillProductAdapter.BillProductViewHolder>(BillProduct.diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BillProductViewHolder =
