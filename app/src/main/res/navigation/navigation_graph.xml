@@ -139,4 +139,14 @@
             android:id="@+id/actionFavoriteToCart"
             app:destination="@id/fragmentCart" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="com.sun.dummyshop.ui.history.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/actionHistoryToCart"
+            app:destination="@id/fragmentCart" />
+    </fragment>
 </navigation>
